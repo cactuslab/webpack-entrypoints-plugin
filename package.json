@@ -1,6 +1,6 @@
 {
   "name": "@cactuslab/webpack-entrypoints-plugin",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Extract webpack entrypoints information into a file after the compiler is done",
   "main": "index.js",
   "scripts": {
