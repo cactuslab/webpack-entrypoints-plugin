@@ -1,5 +1,5 @@
 {
-  "name": "webpack-entrypoints-plugin",
+  "name": "@cactuslab/webpack-entrypoints-plugin",
   "version": "1.1.1",
   "description": "extract webpack entrypoints into a file after compiler done",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pallyoung/webpack-entrypoints-plugin.git"
+    "url": "git+https://github.com/cactuslab/webpack-entrypoints-plugin.git"
   },
   "keywords": [
     "webpack",
@@ -17,7 +17,7 @@
   "author": "Spencer Ye",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/pallyoung/webpack-entrypoints-plugin/issues"
+    "url": "https://github.com/cactuslab/webpack-entrypoints-plugin/issues"
   },
-  "homepage": "https://github.com/pallyoung/webpack-entrypoints-plugin#readme"
+  "homepage": "https://github.com/cactuslab/webpack-entrypoints-plugin#readme"
 }
