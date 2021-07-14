@@ -1,0 +1,13 @@
+{
+	"type": "object",
+	"properties": {
+		"path": {
+			"description": "Output path for entrypoints JSON",
+			"type": "string"
+		},
+		"change": {
+			"description": "Function called with the entrypoints data",
+			"instanceof": "Function"
+		}
+	}
+}

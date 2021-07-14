@@ -1,7 +1,11 @@
 const name = 'WebpackEntrypointsPlugin'
 const fs = require('fs');
+const schema = require('./plugin.json');
+const { validate } = require('schema-utils');
 class WebpackEntrypointsPlugin {
   constructor(options) {
+    validate(schema, options, { name: 'Entrypoints Plugin' });
+
     this.path = options.path;
     this.change = options.change;
   }

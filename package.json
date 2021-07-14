@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/cactuslab/webpack-entrypoints-plugin/issues"
   },
-  "homepage": "https://github.com/cactuslab/webpack-entrypoints-plugin#readme"
+  "homepage": "https://github.com/cactuslab/webpack-entrypoints-plugin#readme",
+  "dependencies": {
+    "schema-utils": "^3.1.0"
+  }
 }
