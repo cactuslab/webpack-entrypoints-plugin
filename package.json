@@ -1,7 +1,7 @@
 {
   "name": "@cactuslab/webpack-entrypoints-plugin",
   "version": "1.1.1",
-  "description": "extract webpack entrypoints into a file after compiler done",
+  "description": "Extract webpack entrypoints information into a file after the compiler is done",
   "main": "index.js",
   "scripts": {
     "test": "null"
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "webpack",
-    "entry"
+    "entrypoints"
   ],
   "author": "Spencer Ye",
   "license": "Apache-2.0",
