@@ -26,21 +26,32 @@ class WebpackEntrypointsPlugin {
         timings: false,
         version: false
       };
-      const entrypoints = stats.toJson(chunkOnlyConfig).entrypoints;
+      const statsObject = stats.toJson(chunkOnlyConfig);
+      const entrypoints = statsObject.entrypoints;
       const path = this.path;
       let data = {};
 
       if (fs.existsSync(path)) {
         data = JSON.parse(fs.readFileSync(path).toString());
-
       }
       for (let en in entrypoints) {
+        entrypoints[en].chunks = entrypoints[en].chunks.map(chunkId => {
+          const chunk = statsObject.chunks.find(chunk => chunk.id === chunkId);
+          if (!chunk) {
+            return chunkId;
+          }
+          return {
+            id: chunkId,
+            files: chunk.files,
+            size: chunk.size,
+          }
+        })
         data[en] = {
           chunks: entrypoints[en].chunks,
           assets: entrypoints[en].assets,
         }
       }
-      path && fs.writeFileSync(path, JSON.stringify(data, null, '\t'));
+      fs.writeFileSync(path, JSON.stringify(data, null, '  '));
       this.change && this.change(data);
     })
   }
