@@ -7,7 +7,7 @@ class WebpackEntrypointsPlugin {
   constructor(options) {
     validate(schema, options, { name: 'Entrypoints Plugin' });
 
-    this.path = options.path;
+    this.path = options.path || 'entrypoints.json';
     this.change = options.change;
   }
   apply(compiler) {
