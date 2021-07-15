@@ -1,5 +1,6 @@
 const name = 'WebpackEntrypointsPlugin'
 const fs = require('fs');
+const { resolve } = require('path');
 const schema = require('./plugin.json');
 const { validate } = require('schema-utils');
 class WebpackEntrypointsPlugin {
@@ -28,7 +29,7 @@ class WebpackEntrypointsPlugin {
       };
       const statsObject = stats.toJson(chunkOnlyConfig);
       const entrypoints = statsObject.entrypoints;
-      const path = this.path;
+      const path = resolve(compiler.options.output.path, this.path);
       let data = {};
 
       if (fs.existsSync(path)) {
