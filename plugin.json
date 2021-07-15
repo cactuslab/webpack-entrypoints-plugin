@@ -8,6 +8,10 @@
 		"change": {
 			"description": "Function called with the entrypoints data",
 			"instanceof": "Function"
+		},
+		"writeToFileEmit": {
+			"description": "If true, will emit the manifest to the build directory and in memory for compatibility with webpack-dev-server.",
+			"type": "boolean"
 		}
 	}
 }

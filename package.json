@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/cactuslab/webpack-entrypoints-plugin#readme",
   "dependencies": {
-    "schema-utils": "^3.1.0"
+    "schema-utils": "^3.1.0",
+    "webpack-sources": "^2.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.44.0"
   }
 }
