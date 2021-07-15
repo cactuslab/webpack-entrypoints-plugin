@@ -12,6 +12,7 @@ class WebpackEntrypointsPlugin {
 
     this.path = options.path || 'entrypoints.json';
     this.change = options.change;
+    this.merge = options.merge || false;
     this.writeToFileEmit = options.writeToFileEmit || false;
   }
   apply(compiler) {
@@ -37,7 +38,7 @@ class WebpackEntrypointsPlugin {
       const path = resolve(compiler.options.output.path, this.path);
       let data = {};
 
-      if (fs.existsSync(path)) {
+      if (this.merge && fs.existsSync(path)) {
         data = JSON.parse(fs.readFileSync(path).toString());
       }
       for (let en in entrypoints) {

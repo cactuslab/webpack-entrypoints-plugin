@@ -9,6 +9,10 @@
 			"description": "Function called with the entrypoints data",
 			"instanceof": "Function"
 		},
+		"merge": {
+			"description": "If true, will merge the manifest with the existing file in the build directory, if it exists.",
+			"type": "boolean"
+		},
 		"writeToFileEmit": {
 			"description": "If true, will emit the manifest to the build directory and in memory for compatibility with webpack-dev-server.",
 			"type": "boolean"
