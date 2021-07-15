@@ -19,7 +19,7 @@ class WebpackEntrypointsPlugin {
     const emit = (compilation) => {
       const stats = compilation.getStats();
       const chunkOnlyConfig = {
-        assets: false,
+        assets: true,
         cached: false,
         children: true,
         chunks: true,
@@ -42,6 +42,7 @@ class WebpackEntrypointsPlugin {
         data = JSON.parse(fs.readFileSync(path).toString());
       }
       for (let en in entrypoints) {
+        /* Augment entrypoint chunks with more information from other stats */
         entrypoints[en].chunks = entrypoints[en].chunks.map(chunkId => {
           const chunk = statsObject.chunks.find(chunk => chunk.id === chunkId);
           if (!chunk) {
@@ -51,6 +52,20 @@ class WebpackEntrypointsPlugin {
             id: chunkId,
             files: chunk.files,
             size: chunk.size,
+          }
+        })
+        /* Augment entrypoint assets with more information from other stats,
+           particularly as at the time in the compilation that we run the entrypoint
+           stats don't include asset sizes.
+         */
+        entrypoints[en].assets = entrypoints[en].assets.map(entrypointAsset => {
+          const assetStats = statsObject.assets.find(asset => asset.name === entrypointAsset.name);
+          if (!assetStats) {
+            return assetStats;
+          }
+          return {
+            name: assetStats.name,
+            size: assetStats.size,
           }
         })
         data[en] = {
