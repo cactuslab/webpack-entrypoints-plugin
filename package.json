@@ -6,9 +6,12 @@
   "scripts": {
     "test": "null"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cactuslab/webpack-entrypoints-plugin.git"
+    "url": "https://github.com/cactuslab/webpack-entrypoints-plugin"
   },
   "keywords": [
     "webpack",
